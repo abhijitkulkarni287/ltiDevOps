@@ -32,18 +32,22 @@ public class QuestionsDaoImpl implements QuestionsDao
 	@Override
 	public void insertQuestions(ExaminationDetails examDetails,FileDetails fileDetails,List<QuestionDetails> questionList,List<QuestionOptions> optionList) 
 	{
+		
+		entityManager.persist(examDetails);
+		entityManager.persist(fileDetails);
+		
 		for(QuestionDetails q:questionList)
 		{
 			//q.setExam(examDetails);
 			//q.setFileDetails(fileDetails);
-			persistAll(examDetails,fileDetails,q);		
+			entityManager.persist(q);
+			//persistAll(examDetails,fileDetails,q);
 		}
 		for(QuestionOptions o:optionList)
 		{
 			entityManager.persist(o);
+			//System.out.println(o.getOption()+ "    ");
 		}
-		
-		
 	}
 
 	@Override
@@ -56,7 +60,7 @@ public class QuestionsDaoImpl implements QuestionsDao
 		int fid = Integer.parseInt(selectQuery.getSingleResult().toString());
 		System.out.println(fid);
 		System.out.println(fileName);
-		//IMP
+		
 		String updateQueryString="UPDATE QuestionDetails q SET q.deleted='YES' WHERE q.fileDetails.fileId=?1";
 		Query updateQuery=entityManager.createQuery(updateQueryString);
 		updateQuery.setParameter(1, fid);

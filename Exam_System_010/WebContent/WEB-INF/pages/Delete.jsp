@@ -12,7 +12,7 @@
 <!-- Generation of a dynamic drop down list based on the Examination List returned from service -->
 	
 <form action="deleteFile.hr">
-	<select name="Files" id="selectedFile">
+	<select name="Files" name="selectedFile">
 		<c:forEach items="${fileList}" var="file">
   			<option value="${file.fileName}">${file.fileName}</option>
   		</c:forEach>

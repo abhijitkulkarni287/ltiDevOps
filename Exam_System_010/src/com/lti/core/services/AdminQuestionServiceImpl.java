@@ -38,8 +38,8 @@ public class AdminQuestionServiceImpl implements AdminQuestionService
 		List<QuestionDetails> questionList = new ArrayList<QuestionDetails>();
 		List<QuestionOptions> questionOptionsList= new ArrayList<QuestionOptions>();	
 		
-		FileDetails fileDetails = new FileDetails( "abaaaaaac.xlsx");
-		ExaminationDetails examDetails = new ExaminationDetails(78, "web techology", 60, 40);
+		FileDetails fileDetails = new FileDetails( "same file.xlsx");
+		ExaminationDetails examDetails = new ExaminationDetails(80, "same web techology", 60, 40);
 		
 		//1) Extraction of data from excel file
 		//excel file location
@@ -82,6 +82,7 @@ public class AdminQuestionServiceImpl implements AdminQuestionService
 								option = Double.toString(cell.getNumericCellValue());
 								questionOption.setOption(option);
 								questionOption.setQuestionDetails(questionDetails);
+								questionOptionsList.add(questionOption);
 							}							
 						}
 						
@@ -101,9 +102,10 @@ public class AdminQuestionServiceImpl implements AdminQuestionService
 								option = cell.getStringCellValue();
 								questionOption.setOption(option);
 								questionOption.setQuestionDetails(questionDetails);
+								questionOptionsList.add(questionOption);
 							}								
 						}	
-						questionOptionsList.add(questionOption);
+						
 			}
 			questionList.add(questionDetails);
 			

@@ -16,7 +16,7 @@ Entity for storing quetionId and its options
 */
 
 @Entity
-@Table(name="QUESTIONS_CHOICES")
+@Table(name="QUESTION_CHOICES")
 public class QuestionOptions 
 {
 	@Id
