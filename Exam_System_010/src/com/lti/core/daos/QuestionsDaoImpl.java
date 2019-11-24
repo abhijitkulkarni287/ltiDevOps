@@ -38,15 +38,11 @@ public class QuestionsDaoImpl implements QuestionsDao
 		
 		for(QuestionDetails q:questionList)
 		{
-			//q.setExam(examDetails);
-			//q.setFileDetails(fileDetails);
 			entityManager.persist(q);
-			//persistAll(examDetails,fileDetails,q);
 		}
 		for(QuestionOptions o:optionList)
 		{
 			entityManager.persist(o);
-			//System.out.println(o.getOption()+ "    ");
 		}
 	}
 
